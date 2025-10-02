@@ -1,2 +1,2 @@
 # urban-doodle
-The MathanGo Leaderboard
+The MathonGo Leaderboard
