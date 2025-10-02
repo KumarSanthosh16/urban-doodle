@@ -37,37 +37,6 @@ const Leaderboard = () => {
   const userRankRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const tableEl = tableRef.current;
-    const rankEl = userRankRef.current;
-
-    console.log('Refs on mount:', { tableEl, rankEl });
-
-    if (!tableEl || !rankEl) return;
-
-    const handleTableScroll = () => {
-      console.log('Table scroll fired:', tableEl.scrollLeft);
-      if (rankEl.scrollLeft !== tableEl.scrollLeft) {
-        rankEl.scrollLeft = tableEl.scrollLeft;
-      }
-    };
-
-    const handleRankScroll = () => {
-      console.log('Rank scroll fired:', rankEl.scrollLeft);
-      if (tableEl.scrollLeft !== rankEl.scrollLeft) {
-        tableEl.scrollLeft = rankEl.scrollLeft;
-      }
-    };
-
-    tableEl.addEventListener('scroll', handleTableScroll);
-    rankEl.addEventListener('scroll', handleRankScroll);
-
-    return () => {
-      tableEl.removeEventListener('scroll', handleTableScroll);
-      rankEl.removeEventListener('scroll', handleRankScroll);
-    };
-  }, []);
-
-  useEffect(() => {
     const load = async () => {
       const res: LeaderboardResponse = await fetchLeaderboard(1, 100);
       setUsers(res.data.results);
@@ -76,6 +45,30 @@ const Leaderboard = () => {
     };
     load();
   }, []);
+
+  useEffect(() => {
+    const tableElement = tableRef.current;
+    const userRankElement = userRankRef.current;
+
+    if (!tableElement || !userRankElement) return;
+
+    const syncScroll = (source: HTMLDivElement, target: HTMLDivElement) => {
+      return () => {
+        target.scrollLeft = source.scrollLeft;
+      };
+    };
+
+    const handleTableScroll = syncScroll(tableElement, userRankElement);
+    const handleUserRankScroll = syncScroll(userRankElement, tableElement);
+
+    tableElement.addEventListener('scroll', handleTableScroll);
+    userRankElement.addEventListener('scroll', handleUserRankScroll);
+
+    return () => {
+      tableElement.removeEventListener('scroll', handleTableScroll);
+      userRankElement.removeEventListener('scroll', handleUserRankScroll);
+    };
+  }, [loading, userRank]);
 
   if (loading)
     return (
@@ -123,7 +116,7 @@ const Leaderboard = () => {
 
       <div
         ref={tableRef}
-        className='rounded-xl border !border-[#EAF3FA] dark:!border-[#202A32] mb-23 mt-24 lg:mt-0 no-scrollbar sticky top-24 overflow-x-auto'
+        className='rounded-xl border !border-[#EAF3FA] dark:!border-[#202A32] mb-23 mt-50 lg:mt-0 no-scrollbar sticky top-24 overflow-x-auto'
       >
         <Table>
           <TableHeader>
@@ -131,7 +124,7 @@ const Leaderboard = () => {
               <TableHead className='text-center  w-[126px]  hidden lg:table-cell text-[#1D2933] dark:text-white text-sm leading-5 font-medium'>
                 Rank
               </TableHead>
-              <TableHead className='min-w-[350px] text-[#1D2933] dark:text-white text-sm leading-5 font-medium'>
+              <TableHead className='lg:min-w-[350px] text-[#1D2933] dark:text-white text-sm leading-5 font-medium'>
                 Student Name
               </TableHead>
               <TableHead className='text-center w-[120px] text-[#5B6480] text-sm leading-5 font-medium'>
@@ -273,7 +266,7 @@ const Leaderboard = () => {
                     {userRank.rank}
                   </span>
                 </TableCell>
-                <TableCell className='flex items-center gap-4 mt-1 min-w-[350px]'>
+                <TableCell className='flex items-center gap-4 mt-1 lg:min-w-[350px]'>
                   <img
                     src={userRank.userId.profilePicture}
                     alt={userRank.userId.name}

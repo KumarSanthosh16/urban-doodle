@@ -23,9 +23,7 @@ const Header = () => {
     >
       <div
         className={`flex ${
-          isScrolled
-            ? 'flex-row items-center'
-            : 'flex-row lg:flex-col items-center lg:items-start'
+          isScrolled ? 'flex-row items-center' : 'flex-col items-start'
         }  gap-6 transition-all duration-200`}
       >
         <div className='bg-rank-color rounded-full p-2'>
@@ -36,7 +34,7 @@ const Header = () => {
         </div>
       </div>
       {!isScrolled && (
-        <p className='text-xs leading-4 text-[#5B6480] dark:text-[#8C949E] hidden lg:block'>
+        <p className='text-xs leading-4 text-[#5B6480] dark:text-[#8C949E] text-left'>
           JEE Main Test series / Quizrr Part Test / Quizrr Part Test (QPT) - 1
           (Old) / Analysis / Leaderboard
         </p>
