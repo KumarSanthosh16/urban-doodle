@@ -58,32 +58,68 @@
   background-color: var(--rank2-rank-bg);
 }
 
-.bg-yellow-gradient-border {
+.light .bg-yellow-gradient-border {
   background: linear-gradient(180deg, #ffc721 0%, #ffffff 100%);
 }
 
-.bg-yellow-gradient {
+.light .bg-yellow-gradient {
   background: linear-gradient(180deg, #fff7de 0%, #ffffff 100%);
 }
 
-.bg-gray-gradient-border {
+.dark .bg-yellow-gradient-border {
+  background: linear-gradient(180deg, #ffc721 0%, #1b2126 100%);
+}
+
+.dark .bg-yellow-gradient {
+  background: linear-gradient(180deg, #332600 0%, #1b2126 100%);
+}
+
+.light .bg-gray-gradient-border {
   background: linear-gradient(180deg, #8593a6 0%, #ffffff 100%);
 }
 
-.bg-gray-gradient {
+.light .bg-gray-gradient {
   background: linear-gradient(180deg, #eceef1 0%, #ffffff 100%);
 }
 
-.bg-orange-gradient-border {
+.dark .bg-gray-gradient-border {
+  background: linear-gradient(180deg, #6a869e 0%, #1b2126 100%);
+}
+
+.dark .bg-gray-gradient {
+  background: linear-gradient(180deg, #2c323a 0%, #1b2126 100%);
+}
+
+.light .bg-orange-gradient-border {
   background: linear-gradient(180deg, #f54a00 0%, #ffffff 100%);
 }
 
-.bg-orange-gradient {
+.light .bg-orange-gradient {
   background: linear-gradient(180deg, #ffe4d8 0%, #ffffff 100%);
 }
 
-.bg-user-gradient-border {
+.dark .bg-orange-gradient-border {
+  background: linear-gradient(180deg, #ffb86a 0%, #1b2126 100%);
+}
+
+.dark .bg-orange-gradient {
+  background: linear-gradient(180deg, #330f00 0%, #1b2126 100%);
+}
+
+.light .bg-user-gradient-border {
   background: linear-gradient(180deg, #eaf3fa 0%, #ffffff 100%);
+}
+
+.light .bg-user-gradient {
+  background: #ffffff;
+}
+
+.dark .bg-user-gradient-border {
+  background: linear-gradient(180deg, #29343d 0%, #1b2126 100%);
+}
+
+.dark .bg-user-gradient {
+  background: #1b2126;
 }
 
 @-moz-document url-prefix() {
@@ -96,41 +132,40 @@
     scrollbar-width: thin;
   }
 }
-/* For Chrome webkit based browser scrollbar */
 *::-webkit-scrollbar {
-  width: 6px; /* vertical scrollbar support  */
-  height: 6px; /* horizontal scrollbar support  */
+  width: 6px;
+  height: 6px;
 }
 *::-webkit-scrollbar-thumb {
   background-color: transparent !important;
 }
 *:hover::-webkit-scrollbar-thumb {
-  background-color: #b8c0cc !important; /* color of the scroll thumb */
-  border-radius: 8px !important; /* roundness of the scroll thumb */
+  background-color: #b8c0cc !important;
+  border-radius: 8px !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #8b96a7 !important; /* color of the scroll thumb */
+  background-color: #8b96a7 !important;
 }
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
+
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .bg-orange-gradient-mobile {
-  background: linear-gradient(180deg, #F54A00 0%, #E17100 100%);
+  background: linear-gradient(180deg, #f54a00 0%, #e17100 100%);
 }
 
 .bg-gray-gradient-mobile {
-  background: linear-gradient(180deg, #A9B5C3 0%, #636F7D 100%);
+  background: linear-gradient(180deg, #a9b5c3 0%, #636f7d 100%);
 }
 
 .bg-red-gradient-mobile {
-  background: linear-gradient(180deg, #A93410 0%, #CB3E13 100%);
+  background: linear-gradient(180deg, #a93410 0%, #cb3e13 100%);
 }

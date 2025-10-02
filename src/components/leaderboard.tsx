@@ -1,4 +1,5 @@
 'use client';
+import { Skeleton } from '../components/ui/skeleton';
 
 import {
   Table,
@@ -29,9 +30,8 @@ const Leaderboard = () => {
   const [loading, setLoading] = useState(true);
   const [userRank, setUserRank] = useState<LeaderboardUser | null>(null);
 
-  // pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12;
+  const itemsPerPage = 16;
 
   const tableRef = useRef<HTMLDivElement | null>(null);
   const userRankRef = useRef<HTMLDivElement | null>(null);
@@ -77,9 +77,13 @@ const Leaderboard = () => {
     load();
   }, []);
 
-  if (loading) return <p className='p-4'>Loading leaderboard...</p>;
+  if (loading)
+    return (
+      <div className='flex flex-col space-y-3 mb-23 mt-24 lg:mt-0 no-scrollbar sticky top-24'>
+        <Skeleton className='h-[80vh] lg:h-[75dvh] w-11/12 mx-auto lg:w-full rounded-xl' />
+      </div>
+    );
 
-  // Calculate paginated data
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentUsers = users.slice(startIndex, endIndex);
@@ -88,7 +92,6 @@ const Leaderboard = () => {
 
   return (
     <div className='px-3 lg:px-6'>
-      {/* Top 3 & User Rank cards */}
       <div className='py-6 hidden lg:flex gap-6 items-center'>
         {users.slice(0, 3).map((user) => (
           <UserFrameCard
@@ -118,25 +121,34 @@ const Leaderboard = () => {
         )}
       </div>
 
-      {/* Leaderboard Table - NOTE ref attached here */}
       <div
         ref={tableRef}
-        className='rounded-xl border !border-[#EAF3FA] mb-23 mt-24 lg:mt-0 no-scrollbar sticky top-24 overflow-x-auto'
+        className='rounded-xl border !border-[#EAF3FA] dark:!border-[#202A32] mb-23 mt-24 lg:mt-0 no-scrollbar sticky top-24 overflow-x-auto'
       >
         <Table>
           <TableHeader>
             <TableRow className='bg-[#F5F9FE] dark:bg-[#202A32]'>
-              <TableHead className='text-center  w-[126px]  hidden lg:table-cell'>
+              <TableHead className='text-center  w-[126px]  hidden lg:table-cell text-[#1D2933] dark:text-white text-sm leading-5 font-medium'>
                 Rank
               </TableHead>
-              <TableHead className='min-w-[350px]'>Student Name</TableHead>
-              <TableHead className='text-center w-[120px]'>
+              <TableHead className='min-w-[350px] text-[#1D2933] dark:text-white text-sm leading-5 font-medium'>
+                Student Name
+              </TableHead>
+              <TableHead className='text-center w-[120px] text-[#5B6480] text-sm leading-5 font-medium'>
                 Overall Score
               </TableHead>
-              <TableHead className='text-center w-[100px]'>Phy</TableHead>
-              <TableHead className='text-center w-[100px]'>Chem</TableHead>
-              <TableHead className='text-center w-[100px]'>Maths</TableHead>
-              <TableHead className='text-center w-[100px]'>Accuracy</TableHead>
+              <TableHead className='text-center w-[100px] text-[#5B6480] text-sm leading-5 font-medium'>
+                Phy
+              </TableHead>
+              <TableHead className='text-center w-[100px] text-[#5B6480] text-sm leading-5 font-medium'>
+                Chem
+              </TableHead>
+              <TableHead className='text-center w-[100px] text-[#5B6480] text-sm leading-5 font-medium'>
+                Maths
+              </TableHead>
+              <TableHead className='text-center w-[100px] text-[#5B6480] text-sm leading-5 font-medium'>
+                Accuracy
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody className='dark:bg-[#1B2126]'>
@@ -183,7 +195,7 @@ const Leaderboard = () => {
                       <span className='text-[#1D2933] text-lg leading-6 font-bold relative'>
                         {user.totalMarkScored}
                       </span>
-                      <span className='hidden lg:block'>
+                      <span className='hidden lg:block dark:text-[#8C949E]'>
                         / {user.subjects.length * 100}
                       </span>
                     </span>
@@ -212,14 +224,13 @@ const Leaderboard = () => {
           </TableBody>
         </Table>
 
-        {/* Pagination */}
         <div className='flex py-6 justify-center items-center gap-4 w-full ml-24 md:ml-0'>
           <Pagination>
             <PaginationContent>
               <PaginationItem>
                 <PaginationPrevious
                   aria-disabled={currentPage === 1}
-                  className={`cursor-pointer !text-[#1D2933] border border-[#D2DFEB] rounded-full disabled:cursor-not-allowed`}
+                  className={`cursor-pointer !text-[#1D2933] dark:!text-white border border-[#D2DFEB] rounded-full disabled:cursor-not-allowed`}
                   onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
                 />
               </PaginationItem>
@@ -229,8 +240,8 @@ const Leaderboard = () => {
                   onClick={() => setCurrentPage(i + 1)}
                   className={`px-2 py-1.5 border rounded-full cursor-pointer hidden lg:block ${
                     currentPage === i + 1
-                      ? 'bg-[#432DD7]  border-[#432DD7] !text-white hover:!text-[#1D2933]'
-                      : '!text-[#1D2933] bg-white border-[#D2DFEB]'
+                      ? 'bg-[#432DD7]  border-[#432DD7] !text-white hover:!text-[#1D2933] dark:hover:!text-white'
+                      : '!text-[#1D2933] dark:hover:!text-white bg-white border-[#D2DFEB]'
                   }`}
                 >
                   {i + 1}
@@ -238,7 +249,7 @@ const Leaderboard = () => {
               ))}
               <PaginationItem>
                 <PaginationNext
-                  className='cursor-pointer !text-[#1D2933] border border-[#D2DFEB] rounded-full'
+                  className='cursor-pointer !text-[#1D2933] dark:!text-white border border-[#D2DFEB] rounded-full'
                   onClick={() =>
                     setCurrentPage((p) => Math.min(p + 1, totalPages))
                   }
@@ -249,8 +260,7 @@ const Leaderboard = () => {
         </div>
       </div>
 
-      {/* Sticky User Rank */}
-      {userRank && (
+      {userRank ? (
         <div
           ref={userRankRef}
           className='lg:rounded-tr-3xl lg:rounded-tl-3xl border border-[#EAF3FA] dark:border-[#29343D] backdrop-blur-lg bg-[#0058C61A] fixed lg:sticky left-0 bottom-0 w-full overflow-x-auto'
@@ -301,6 +311,10 @@ const Leaderboard = () => {
               </TableRow>
             </TableBody>
           </Table>
+        </div>
+      ) : (
+        <div className='flex flex-col space-y-3 fixed lg:sticky left-0 bottom-0 w-full'>
+          <Skeleton className='h-[8dvh] w-full rounded-xl' />
         </div>
       )}
     </div>

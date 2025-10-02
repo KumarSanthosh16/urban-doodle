@@ -65,7 +65,7 @@ const UserFrameCard = ({
             ? 'bg-gray-gradient'
             : rank === 3
             ? 'bg-orange-gradient'
-            : 'bg-white'
+            : 'bg-user-gradient'
         }  flex flex-col justify-around gap-6  py-6`}
       >
         <div className='flex flex-col items-center gap-4 relative'>
@@ -97,7 +97,7 @@ const UserFrameCard = ({
               rank === 1
                 ? 'bg-[#FEF9C2] text-[#733E0A]'
                 : rank === 2
-                ? 'bg-[#0058C61A] text-[#1D2933]'
+                ? 'bg-[#0058C61A] text-[#1D2933] dark:text-white'
                 : rank === 3
                 ? 'bg-[#FFEDD4] text-[#F54A00]'
                 : 'bg-[#F5F9FE] text-[#1D2933]'
@@ -111,7 +111,7 @@ const UserFrameCard = ({
         <div className='flex flex-col items-center justify-between gap-4'>
           <div className='flex justify-between items-center w-full px-4 text-sm leading-4 font-medium text-[#5B6480]'>
             <div className=' flex items-center gap-2'>
-              <Checks size={23} className='text-black' />
+              <Checks size={23} className='text-black dark:text-white' />
               Overall Score
             </div>
             <div className='flex items-center gap-1'>

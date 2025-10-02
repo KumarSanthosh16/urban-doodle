@@ -17,7 +17,7 @@ const Header = () => {
     <div
       className={`p-6 flex justify-between items-start flex-col gap-4 fixed lg:sticky top-0 mx-auto z-50 transition-all duration-300 bg-white dark:bg-[#1B2126CC] w-full ${
         isScrolled
-          ? 'border border-[#EAF3FA] rounded-br-2xl rounded-bl-2xl'
+          ? 'border border-[#EAF3FA] dark:border-[#29343D] backdrop-blur-2xl rounded-br-2xl rounded-bl-2xl'
           : 'border border-transparent'
       }`}
     >
