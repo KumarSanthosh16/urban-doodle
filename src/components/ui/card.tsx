@@ -6,6 +6,12 @@ import {
   Checks,
 } from '@phosphor-icons/react';
 
+import rank1 from '../../assets/rank-1.png';
+import rank2 from '../../assets/rank-2.png';
+import rank3 from '../../assets/rank-3.png';
+
+const rankImages: Record<number, string> = { 1: rank1, 2: rank2, 3: rank3 };
+
 interface CardProps {
   rank: number;
   name: string;
@@ -81,7 +87,7 @@ const UserFrameCard = ({
             />
             {rank === 1 || rank === 2 || rank === 3 ? (
               <img
-                src={'../src/assets/rank-' + rank + '.png'}
+                src={rankImages[rank]}
                 alt={rank + ' Rank'}
                 width={24}
                 height={24}
