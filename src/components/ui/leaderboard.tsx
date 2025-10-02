@@ -1,5 +1,5 @@
 'use client';
-import { Skeleton } from '../components/ui/skeleton';
+import { Skeleton } from './skeleton';
 
 import {
   Table,
@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from './ui/table';
+} from './table';
 import {
   Pagination,
   PaginationContent,
@@ -16,14 +16,14 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from './ui/pagination';
+} from './pagination';
 import { useEffect, useRef, useState } from 'react';
-import { fetchLeaderboard } from '../services/leaderboardService';
+import { fetchLeaderboard } from '../../services/leaderboardService';
 import type {
   LeaderboardUser,
   LeaderboardResponse,
-} from '../services/leaderboardService';
-import UserFrameCard from './ui/card';
+} from '../../services/leaderboardService';
+import UserFrameCard from './card';
 
 const Leaderboard = () => {
   const [users, setUsers] = useState<LeaderboardUser[]>([]);

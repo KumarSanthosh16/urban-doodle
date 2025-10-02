@@ -1,7 +1,7 @@
 import Header from './components/ui/header';
 import './styles/App.css';
 import { ThemeProvider } from './components/theme-provider';
-import Leaderboard from './components/leaderboard';
+import Leaderboard from './components/ui/leaderboard';
 
 function App() {
   return (
