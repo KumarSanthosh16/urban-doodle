@@ -40,6 +40,7 @@
   --q3-base-cyan: #00d2e3;
   --q3-base-sky: #00adff;
   --q3-base-blue: #3080ff;
+  --q3-base-voilet: #432DD7;
   --q3-base-indigo: #8a46fd;
   --q3-base-purple: #dc1aff;
   --q3-base-pink: #ff4896;
@@ -48,6 +49,7 @@
   --q3-neutral-light: #60748f;
   --q3-neutral-light-v2: #5b6480;
   --q3-surface-default: #ffffff;
+  --q3-surface-default-v2: #EAF3FA;
   --q3-surface-glass: #ffffff5a;
   --q3-surface-dim: #f5f9fe;
   --q3-accent-normal: var(--indigo-700);
@@ -57,6 +59,7 @@
   --q3-surface-glass-light: #ffffff14;
   --q3-surface-glass-normal: #ffffff50;
   --q3-stroke-dark: #8593a6;
+  --q3-stroke-dark-v2: #8C949E;
   --q3-surface-default_0: #ffffff00;
   --q3-surface-dim_0: #f5f9fe00;
   --q3-neutral-default_inverted: #ffffff;
@@ -199,6 +202,7 @@
   --q3-neutral-light: #bcc6d3;
   --q3-neutral-light-v3: #c8cbd5;
   --q3-surface-default: #1b2126;
+  --q3-surface-default-v3: #1b2126CC;
   --q3-surface-glass: #1b21265a;
   --q3-surface-dim: #202a32;
   --q3-accent-normal: var(--indigo-300);
@@ -279,6 +283,7 @@
     var(--q3-stroke-light),
     var(--q3-blue-normal)
   );
+
 
   /* Dark mode rank colors */
   --rank1-bg: linear-gradient(180deg, #332600 0%, #1b2126 100%);

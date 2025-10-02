@@ -81,7 +81,7 @@ const UserFrameCard = ({
               alt={name}
               width={64}
               height={64}
-              className={`rounded-full border-2 border-[#EAF3FA] ${
+              className={`rounded-full border-2 border-[var(--q3-surface-default-v2)] ${
                 'badge-' + rank
               }`}
             />
@@ -95,7 +95,7 @@ const UserFrameCard = ({
               />
             ) : null}
           </div>
-          <p className='text-lg leading-6 font-bold text-[#1D2933] dark:text-white pt-6'>
+          <p className='text-lg leading-6 font-bold text-[var(--q3-neutral-default)] dark:text-white pt-6'>
             {name} {userRank && ' (You)'}
           </p>
           <p
@@ -103,10 +103,10 @@ const UserFrameCard = ({
               rank === 1
                 ? 'bg-[#FEF9C2] text-[#733E0A]'
                 : rank === 2
-                ? 'bg-[#0058C61A] text-[#1D2933] dark:text-white'
+                ? 'bg-[var(--q3-surface-dimmest)] text-[var(--q3-neutral-default)] dark:text-white'
                 : rank === 3
                 ? 'bg-[#FFEDD4] text-[#F54A00]'
-                : 'bg-[#F5F9FE] text-[#1D2933]'
+                : 'bg-[var(--q3-surface-dim)] text-[var(--q3-neutral-default)]'
             } `}
           >
             {rank}
@@ -115,40 +115,40 @@ const UserFrameCard = ({
           </p>
         </div>
         <div className='flex flex-col items-center justify-between gap-4'>
-          <div className='flex justify-between items-center w-full px-4 text-sm leading-4 font-medium text-[#5B6480]'>
+          <div className='flex justify-between items-center w-full px-4 text-sm leading-4 font-medium text-[var(--q3-neutral-light-v2)]'>
             <div className=' flex items-center gap-2'>
               <Checks size={23} className='text-black dark:text-white' />
               Overall Score
             </div>
             <div className='flex items-center gap-1'>
-              <span className='text-lg leading-6 font-bold text-[#1D2933] dark:text-white'>
+              <span className='text-lg leading-6 font-bold text-[var(--q3-neutral-default)] dark:text-white'>
                 {totalMarkScored}
               </span>{' '}
               / 300
             </div>
           </div>
-          <div className='flex justify-between items-center w-full px-4 text-sm leading-4 font-medium text-[#5B6480] '>
+          <div className='flex justify-between items-center w-full px-4 text-sm leading-4 font-medium text-[var(--q3-neutral-light-v2)] '>
             <div className='flex items-center gap-2'>
               <Atom size={23} className='text-[#009966]' />
               Phy Score
             </div>
             <div className=''>{phy}</div>
           </div>
-          <div className='flex justify-between items-center w-full px-4 text-sm leading-4 font-medium text-[#5B6480] '>
+          <div className='flex justify-between items-center w-full px-4 text-sm leading-4 font-medium text-[var(--q3-neutral-light-v2)] '>
             <div className='flex items-center gap-2'>
               <Flask size={23} className='text-[#F54A00]' />
               Chem Score
             </div>
             <div className=''>{chem}</div>
           </div>
-          <div className='flex justify-between items-center w-full px-4 text-sm leading-4 font-medium text-[#5B6480] '>
+          <div className='flex justify-between items-center w-full px-4 text-sm leading-4 font-medium text-[var(--q3-neutral-light-v2)] '>
             <div className='flex items-center gap-2'>
               <MathOperations size={23} className='text-[#155DFC]' />
               Maths Score
             </div>
             <div className=''>{maths}</div>
           </div>
-          <div className='flex justify-between items-center w-full px-4 text-sm leading-4 font-medium text-[#5B6480] '>
+          <div className='flex justify-between items-center w-full px-4 text-sm leading-4 font-medium text-[var(--q3-neutral-light-v2)] '>
             <div className='flex items-center gap-2'>
               <Target size={23} className='text-[#C800DE]' />
               Accuracy

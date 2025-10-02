@@ -49,7 +49,7 @@ function TableRow({ className, ...props }: React.ComponentProps<'tr'>) {
     <tr
       data-slot='table-row'
       className={cn(
-        ' border-b transition-colors border-[#EAF3FA] dark:border-[#202A32]',
+        ' border-b transition-colors border-[var(--q3-surface-default-v2)] dark:border-[var(--q3-surface-dim)]',
         className
       )}
       {...props}

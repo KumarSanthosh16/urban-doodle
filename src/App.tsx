@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
-        <div className='bg-white dark:bg-[#1B2126]'>
+        <div className='bg-white dark:bg-[var(--q3-surface-default)]'>
           <div className='container-common'>
             <Header />
             <Leaderboard />

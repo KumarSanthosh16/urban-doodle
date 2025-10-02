@@ -116,35 +116,35 @@ const Leaderboard = () => {
 
       <div
         ref={tableRef}
-        className='rounded-xl border !border-[#EAF3FA] dark:!border-[#202A32] mb-23 mt-50 lg:mt-0 no-scrollbar sticky top-24 overflow-x-auto'
+        className='rounded-xl border !border-[var(--q3-surface-default-v2)] dark:!border-[var(--q3-surface-dim)] mb-23 mt-50 lg:mt-0 no-scrollbar sticky top-24 overflow-x-auto'
       >
         <Table>
           <TableHeader>
-            <TableRow className='bg-[#F5F9FE] dark:bg-[#202A32]'>
-              <TableHead className='text-center  w-[126px]  hidden lg:table-cell text-[#1D2933] dark:text-white text-sm leading-5 font-medium'>
+            <TableRow className='bg-[var(--q3-surface-dim)] dark:bg-[var(--q3-surface-dim)]'>
+              <TableHead className='text-center  w-[126px]  hidden lg:table-cell text-[var(--q3-neutral-default)] dark:text-white text-sm leading-5 font-medium'>
                 Rank
               </TableHead>
-              <TableHead className='lg:min-w-[350px] text-[#1D2933] dark:text-white text-sm leading-5 font-medium'>
+              <TableHead className='lg:min-w-[350px] text-[var(--q3-neutral-default)] dark:text-white text-sm leading-5 font-medium'>
                 Student Name
               </TableHead>
-              <TableHead className='text-center w-[120px] text-[#5B6480] text-sm leading-5 font-medium'>
+              <TableHead className='text-center w-[120px] text-[var(--q3-neutral-light-v2)] text-sm leading-5 font-medium'>
                 Overall Score
               </TableHead>
-              <TableHead className='text-center w-[100px] text-[#5B6480] text-sm leading-5 font-medium'>
+              <TableHead className='text-center w-[100px] text-[var(--q3-neutral-light-v2)] text-sm leading-5 font-medium'>
                 Phy
               </TableHead>
-              <TableHead className='text-center w-[100px] text-[#5B6480] text-sm leading-5 font-medium'>
+              <TableHead className='text-center w-[100px] text-[var(--q3-neutral-light-v2)] text-sm leading-5 font-medium'>
                 Chem
               </TableHead>
-              <TableHead className='text-center w-[100px] text-[#5B6480] text-sm leading-5 font-medium'>
+              <TableHead className='text-center w-[100px] text-[var(--q3-neutral-light-v2)] text-sm leading-5 font-medium'>
                 Maths
               </TableHead>
-              <TableHead className='text-center w-[100px] text-[#5B6480] text-sm leading-5 font-medium'>
+              <TableHead className='text-center w-[100px] text-[var(--q3-neutral-light-v2)] text-sm leading-5 font-medium'>
                 Accuracy
               </TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody className='dark:bg-[#1B2126]'>
+          <TableBody className='dark:bg-[var(--q3-surface-default)]'>
             {currentUsers.length > 0 ? (
               currentUsers.map((user) => (
                 <TableRow
@@ -156,7 +156,7 @@ const Leaderboard = () => {
                   }`}
                 >
                   <TableCell className='text-center hidden lg:table-cell'>
-                    <span className='px-3 py-[6px] rounded-full bg-white dark:bg-[#1B2126] border'>
+                    <span className='px-3 py-[6px] rounded-full bg-white dark:bg-[var(--q3-surface-default)] border'>
                       {user.rank}
                     </span>
                   </TableCell>
@@ -166,7 +166,7 @@ const Leaderboard = () => {
                       alt={user.userId.name}
                       width={32}
                       height={32}
-                      className='rounded-full border border-[#EAF3FA] hidden lg:block'
+                      className='rounded-full border border-[var(--q3-surface-default-v2)] hidden lg:block'
                     />
                     <span
                       className={`px-3 py-[6px] rounded-full ${
@@ -177,32 +177,32 @@ const Leaderboard = () => {
                           : user.rank === 3
                           ? 'bg-red-gradient-mobile text-white'
                           : 'bg-white'
-                      }  dark:bg-[#1B2126] border block lg:hidden`}
+                      }  dark:bg-[var(--q3-surface-default)] border block lg:hidden`}
                     >
                       {user.rank}
                     </span>
                     <p className='text-sm font-bold'>{user.userId.name}</p>
                   </TableCell>
                   <TableCell className='text-center w-[120px]'>
-                    <span className='px-3 py-2 rounded-full bg-[#F5F9FE] text-[#5B6480] dark:text-white text-xs leading-4 font-medium text-center flex items-center gap-1 w-fit'>
-                      <span className='text-[#1D2933] text-lg leading-6 font-bold relative'>
+                    <span className='px-3 py-2 rounded-full bg-[var(--q3-surface-dim)] text-[var(--q3-neutral-light-v2)] dark:text-white text-xs leading-4 font-medium text-center flex items-center gap-1 w-fit'>
+                      <span className='text-[var(--q3-neutral-default)] text-lg leading-6 font-bold relative'>
                         {user.totalMarkScored}
                       </span>
-                      <span className='hidden lg:block dark:text-[#8C949E]'>
+                      <span className='hidden lg:block dark:text-[var(--q3-stroke-dark-v2)]'>
                         / {user.subjects.length * 100}
                       </span>
                     </span>
                   </TableCell>
-                  <TableCell className='text-center text-[#1D2933] dark:text-white text-lg leading-6 font-medium w-[100px]'>
+                  <TableCell className='text-center text-[var(--q3-neutral-default)] dark:text-white text-lg leading-6 font-medium w-[100px]'>
                     {user.subjects[1].totalMarkScored}
                   </TableCell>
-                  <TableCell className='text-center text-[#1D2933] dark:text-white text-lg leading-6 font-medium w-[100px]'>
+                  <TableCell className='text-center text-[var(--q3-neutral-default)3-neutral-default)] dark:text-white text-lg leading-6 font-medium w-[100px]'>
                     {user.subjects[2].totalMarkScored}
                   </TableCell>
-                  <TableCell className='text-center text-[#1D2933] dark:text-white text-lg leading-6 font-medium w-[100px]'>
+                  <TableCell className='text-center text-[var(--q3-neutral-default)] dark:text-white text-lg leading-6 font-medium w-[100px]'>
                     {user.subjects[0].totalMarkScored}
                   </TableCell>
-                  <TableCell className='text-center text-[#1D2933] dark:text-white text-lg leading-6 font-medium w-[100px]'>
+                  <TableCell className='text-center text-[var(--q3-neutral-default)] dark:text-white text-lg leading-6 font-medium w-[100px]'>
                     {user.accuracy.toFixed(1)}%
                   </TableCell>
                 </TableRow>
@@ -223,7 +223,7 @@ const Leaderboard = () => {
               <PaginationItem>
                 <PaginationPrevious
                   aria-disabled={currentPage === 1}
-                  className={`cursor-pointer !text-[#1D2933] dark:!text-white border border-[#D2DFEB] rounded-full disabled:cursor-not-allowed`}
+                  className={`cursor-pointer !text-[var(--q3-neutral-default)] dark:!text-white border border-[var(--q3-stroke-normal-v2)] rounded-full disabled:cursor-not-allowed`}
                   onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
                 />
               </PaginationItem>
@@ -233,8 +233,8 @@ const Leaderboard = () => {
                   onClick={() => setCurrentPage(i + 1)}
                   className={`px-2 py-1.5 border rounded-full cursor-pointer hidden lg:block ${
                     currentPage === i + 1
-                      ? 'bg-[#432DD7]  border-[#432DD7] !text-white hover:!text-[#1D2933] dark:hover:!text-white'
-                      : '!text-[#1D2933] dark:hover:!text-white bg-white border-[#D2DFEB]'
+                      ? 'bg-[var(--q3-base-voilet)]  border-[var(--q3-base-voilet)] !text-white hover:!text-[var(--q3-neutral-default)] dark:hover:!text-white'
+                      : '!text-[var(--q3-neutral-default)] dark:hover:!text-white bg-white dark:!bg-transparent border-[var(--q3-stroke-normal-v2)]'
                   }`}
                 >
                   {i + 1}
@@ -242,7 +242,7 @@ const Leaderboard = () => {
               ))}
               <PaginationItem>
                 <PaginationNext
-                  className='cursor-pointer !text-[#1D2933] dark:!text-white border border-[#D2DFEB] rounded-full'
+                  className='cursor-pointer !text-[var(--q3-neutral-default)] dark:!text-white border border-[var(--q3-stroke-normal-v2)] rounded-full'
                   onClick={() =>
                     setCurrentPage((p) => Math.min(p + 1, totalPages))
                   }
@@ -256,13 +256,13 @@ const Leaderboard = () => {
       {userRank ? (
         <div
           ref={userRankRef}
-          className='lg:rounded-tr-3xl lg:rounded-tl-3xl border border-[#EAF3FA] dark:border-[#29343D] backdrop-blur-lg bg-[#0058C61A] fixed lg:sticky left-0 bottom-0 w-full overflow-x-auto'
+          className='lg:rounded-tr-3xl lg:rounded-tl-3xl border border-[var(--q3-surface-default-v2)] dark:border-[var(--q3-stroke-light)] backdrop-blur-lg bg-[var(--q3-surface-dimmest)] fixed lg:sticky left-0 bottom-0 w-full overflow-x-auto'
         >
           <Table>
             <TableBody>
               <TableRow key={userRank._id} className='hover:!bg-transparent'>
                 <TableCell className='text-center font-medium w-[126px] hidden lg:table-cell'>
-                  <span className='px-3 py-[9px] rounded-full bg-white dark:bg-[#1B2126] border'>
+                  <span className='px-3 py-[9px] rounded-full bg-white dark:bg-[var(--q3-surface-default)] border'>
                     {userRank.rank}
                   </span>
                 </TableCell>
@@ -272,16 +272,16 @@ const Leaderboard = () => {
                     alt={userRank.userId.name}
                     width={32}
                     height={32}
-                    className='rounded-full border border-[#EAF3FA] hidden lg:block'
+                    className='rounded-full border border-[var(--q3-surface-default-v2)] hidden lg:block'
                   />
-                  <span className='px-3 py-[9px] rounded-full bg-white dark:bg-[#1B2126] border block lg:hidden'>
+                  <span className='px-3 py-[9px] rounded-full bg-white dark:bg-[var(--q3-surface-default)] border block lg:hidden'>
                     {userRank.rank}
                   </span>
                   <p className='text-sm font-bold'>{userRank.userId.name}</p>
                 </TableCell>
                 <TableCell className='text-center w-[120px]'>
-                  <span className='px-3 py-2 rounded-full bg-[#F5F9FE] text-[#5B6480] text-xs font-medium flex items-center gap-1 w-fit'>
-                    <span className='text-[#1D2933] text-lg font-bold'>
+                  <span className='px-3 py-2 rounded-full bg-[var(--q3-surface-dim)] text-[var(--q3-neutral-light-v2)] text-xs font-medium flex items-center gap-1 w-fit'>
+                    <span className='text-[var(--q3-neutral-default)] text-lg font-bold'>
                       {userRank.totalMarkScored}
                     </span>
                     <span className='hidden lg:block'>
@@ -289,16 +289,16 @@ const Leaderboard = () => {
                     </span>
                   </span>
                 </TableCell>
-                <TableCell className='text-center text-[#1D2933] dark:text-white text-lg leading-6 font-medium w-[100px]'>
+                <TableCell className='text-center text-[var(--q3-neutral-default)] dark:text-white text-lg leading-6 font-medium w-[100px]'>
                   {userRank.subjects[1].totalMarkScored}
                 </TableCell>
-                <TableCell className='text-center text-[#1D2933] dark:text-white text-lg leading-6 font-medium w-[100px]'>
+                <TableCell className='text-center text-[var(--q3-neutral-default)] dark:text-white text-lg leading-6 font-medium w-[100px]'>
                   {userRank.subjects[2].totalMarkScored}
                 </TableCell>
-                <TableCell className='text-center text-[#1D2933] dark:text-white text-lg leading-6 font-medium w-[100px]'>
+                <TableCell className='text-center text-[var(--q3-neutral-default)] dark:text-white text-lg leading-6 font-medium w-[100px]'>
                   {userRank.subjects[0].totalMarkScored}
                 </TableCell>
-                <TableCell className='text-center text-[#1D2933] dark:text-white text-lg leading-6 font-medium w-[100px]'>
+                <TableCell className='text-center text-[var(--q3-neutral-default)] dark:text-white text-lg leading-6 font-medium w-[100px]'>
                   {userRank.accuracy.toFixed(1)}%
                 </TableCell>
               </TableRow>
