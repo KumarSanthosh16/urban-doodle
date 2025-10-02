@@ -81,7 +81,7 @@ const UserFrameCard = ({
             />
             {rank === 1 || rank === 2 || rank === 3 ? (
               <img
-                src={'src/assets/rank-' + rank + '.png'}
+                src={'../src/assets/rank-' + rank + '.png'}
                 alt={rank + ' Rank'}
                 width={24}
                 height={24}
